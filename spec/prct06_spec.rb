@@ -1,15 +1,13 @@
 RSpec.describe Prct06 do
 
         before :each do
-                @alimento=Etiqueta.new("chocobollo",416.00,20.70,2.80,47.30,0.00,9.00,270.00,5.80,11.10,0.00,0.00,2.00,35.10)
+                @alimento=Etiqueta.new("chocobollo",20.70,2.80,47.30,0.00,9.00,270.00,5.80,11.10,0.00,0.00,2.00,35.10)
         end	
 	describe "# valor de los elementos de la etiqueta" do
 		it "Tipo de alimento" do
 			expect(@alimento.nombre).to eq("chocobollo")
 		end
-		it "Valor energetico" do
-			expect(@alimento.vener).to eq(416.00)
-		end
+	
 		it "Cantidad de grasas" do
 			expect(@alimento.cgrasas).to eq(20.70)
 		end
@@ -46,6 +44,12 @@ RSpec.describe Prct06 do
 		it "Cantidad de Vitaminas y Minerales" do
 			expect(@alimento.vitymin).to eq(35.10)
 		end
+ 		it "Valor energetico en kJ" do
+			expect(@alimento.valorenergeticoKJ()).to eq(9217.9)
+		end
+		it "Valor energetico en kcal" do
+                        expect(@alimento.valorenergeticoKcal()).to eq(2212.8)
+                end
 	end
 end
 
