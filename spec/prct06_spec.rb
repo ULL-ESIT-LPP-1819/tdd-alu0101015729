@@ -58,6 +58,54 @@ RSpec.describe Prct06 do
                 end
 	end
 	
+	describe "Valor de IR de los elementos del producto" do
+		it "Valor IR de valor energetico en KJ" do
+                        expect(@alimento.IRenergeticoKJ()).to eq(109.74)
+                end
+                it "Valor IR de valor energetico en Kcal" do
+                        expect(@alimento.IRenergeticoKcal()).to eq(110.64)
+                end
+                it "Valor IR de valor de grasas" do
+                        expect(@alimento.IRgrasas()).to eq(29.57)
+                end
+                it "Valor IR de grasas saturadas" do
+                        expect(@alimento.IRgrasassaturadas()).to eq(4.0)
+                end
+                it "Valor IR de hidratos de carbono" do
+                        expect(@alimento.IRhidratos()).to eq(18.19)
+                end
+                it "Valor IR de azucares" do
+                        expect(@alimento.IRazucares()).to eq(0.0)
+                end
+		it "Valor IR de proteinas" do
+                        expect(@alimento.IRproteinas()).to eq(18)
+                end
+		it "Valor IR de sal" do
+                        expect(@alimento.IRsal()).to eq(4500.0)
+                end
+		it "Valor IR de grasas monointeresadas" do
+                        expect(@alimento.IRmonograsas()).to eq(8.29)
+                end
+		it "Valor IR de poliinsaturadas" do
+                        expect(@alimento.IRpoliinsaturadas()).to eq(15.86)
+                end
+		it "Valor IR de polialcoholes" do
+                        expect(@alimento.IRpolialcoholes()).to eq(0.0)
+                end
+		it "Valor IR de almidon" do
+                        expect(@alimento.IRalmidon()).to eq(0.0)
+                end
+		it "Valor IR de fibra" do
+                        expect(@alimento.IRfibra()).to eq(4.0)
+                end
+		it "Valor IR de vitaminas y minerales" do
+                        expect(@alimento.IRvitaminas()).to eq(70.2)
+                end
+
+	end 	
+
+
+
 	describe "#Valor de los elementos por porcion" do
 		it "Cantidad de grasas por porcion" do
 			expect(@alimento.valorgrasasp()).to eq(14.49)

@@ -78,4 +78,61 @@ class Etiqueta
                 vag.round(2)
         end
 
+
+	def IRenergeticoKJ()
+                vag=(valorenergeticoKJ() * 100) / 8400
+                vag.round(2)
+        end
+        def IRenergeticoKcal()
+                vag=(valorenergeticoKcal() * 100) / 2000
+                vag.round(2)
+        end
+	def IRgrasas()
+                vag=(cgrasas * 100) / 70
+                vag.round(2)
+        end
+	def IRgrasassaturadas()
+                vag=(cgrasassa * 100) / 70
+                vag.round(2)
+        end
+        def IRhidratos()
+                vag=(hcarbono * 100) / 260
+                vag.round(2)
+        end
+        def IRazucares()
+                vag=(azucares * 100) / 90
+                vag.round(2)
+        end
+        def IRproteinas()
+                vag=(proteinas * 100) / 50
+                vag.round(2)
+        end
+        def IRsal()
+                vag=(sal * 100) / 6
+                vag.round(2)
+        end
+        def IRmonograsas()
+                vag=(grasasmono * 100) / 70
+                vag.round(2)
+        end
+	def IRpoliinsaturadas()
+                vag=(grasaspoli * 100) / 70
+                vag.round(2)
+        end
+	def IRpolialcoholes()
+                vag=(polialcoholes * 100) / 90
+                vag.round(2)
+        end
+	def IRalmidon()
+                vag=(almidon * 100) / 90
+                vag.round(2)
+        end
+	def IRfibra()
+                vag=(fibra * 100) / 50
+                vag.round(2)
+        end
+	def IRvitaminas()
+                vag=(vitymin * 100) / 50
+                vag.round(2)
+        end
 end
