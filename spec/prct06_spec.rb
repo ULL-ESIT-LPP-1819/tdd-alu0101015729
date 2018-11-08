@@ -60,46 +60,46 @@ RSpec.describe Prct06 do
 	
 	describe "Valor de IR de los elementos del producto" do
 		it "Valor IR de valor energetico en KJ" do
-                        expect(@alimento.IRenergeticoKJ()).to eq(109.74)
+                        expect(@alimento.irenergeticoKJ()).to eq(109.74)
                 end
                 it "Valor IR de valor energetico en Kcal" do
-                        expect(@alimento.IRenergeticoKcal()).to eq(110.64)
+                        expect(@alimento.irenergeticoKcal()).to eq(110.64)
                 end
                 it "Valor IR de valor de grasas" do
-                        expect(@alimento.IRgrasas()).to eq(29.57)
+                        expect(@alimento.irgrasas()).to eq(29.57)
                 end
                 it "Valor IR de grasas saturadas" do
-                        expect(@alimento.IRgrasassaturadas()).to eq(4.0)
+                        expect(@alimento.irgrasassaturadas()).to eq(4.0)
                 end
                 it "Valor IR de hidratos de carbono" do
-                        expect(@alimento.IRhidratos()).to eq(18.19)
+                        expect(@alimento.irhidratos()).to eq(18.19)
                 end
                 it "Valor IR de azucares" do
-                        expect(@alimento.IRazucares()).to eq(0.0)
+                        expect(@alimento.irazucares()).to eq(0.0)
                 end
 		it "Valor IR de proteinas" do
-                        expect(@alimento.IRproteinas()).to eq(18)
+                        expect(@alimento.irproteinas()).to eq(18)
                 end
 		it "Valor IR de sal" do
-                        expect(@alimento.IRsal()).to eq(4500.0)
+                        expect(@alimento.irsal()).to eq(4500.0)
                 end
 		it "Valor IR de grasas monointeresadas" do
-                        expect(@alimento.IRmonograsas()).to eq(8.29)
+                        expect(@alimento.irmonograsas()).to eq(8.29)
                 end
 		it "Valor IR de poliinsaturadas" do
-                        expect(@alimento.IRpoliinsaturadas()).to eq(15.86)
+                        expect(@alimento.irpoliinsaturadas()).to eq(15.86)
                 end
 		it "Valor IR de polialcoholes" do
-                        expect(@alimento.IRpolialcoholes()).to eq(0.0)
+                        expect(@alimento.irpolialcoholes()).to eq(0.0)
                 end
 		it "Valor IR de almidon" do
-                        expect(@alimento.IRalmidon()).to eq(0.0)
+                        expect(@alimento.iralmidon()).to eq(0.0)
                 end
 		it "Valor IR de fibra" do
-                        expect(@alimento.IRfibra()).to eq(4.0)
+                        expect(@alimento.irfibra()).to eq(4.0)
                 end
 		it "Valor IR de vitaminas y minerales" do
-                        expect(@alimento.IRvitaminas()).to eq(70.2)
+                        expect(@alimento.irvitaminas()).to eq(70.2)
                 end
 
 	end 	
@@ -143,6 +143,69 @@ RSpec.describe Prct06 do
 		it "Cantidad de Vitaminas y Minerales por porcion" do
                         expect(@alimento.valorvityminp()).to eq(24.57)
                 end
+	end
+	
+	describe "Valor de IR de los elementos del producto por porcion" do
+		it "Valor IR de valor energetico en KJ por porcion" do
+                        expect(@alimento.irenergeticoKJ()).to eq(109.74)
+                end
+                it "Valor IR de valor energetico en Kcal por porcion" do
+                        expect(@alimento.irenergeticoKcalp).to eq(77.45)
+                end
+                it "Valor IR de valor de grasas por porcion" do
+                        expect(@alimento.irgrasasp).to eq(2.8)
+                end
+                it "Valor IR de grasas saturadas por porcion" do
+                        expect(@alimento.irgrasassaturadasp).to eq(2.8)
+                end
+                it "Valor IR de hidratos de carbono por porcion" do
+                        expect(@alimento.irhidratosp).to eq(12.73)
+                end
+                it "Valor IR de azucares por porcion" do
+                        expect(@alimento.irazucaresp).to eq(0.0)
+                end
+		it "Valor IR de proteinas por porcion" do
+                        expect(@alimento.irproteinasp).to eq(12.6)
+                end
+		it "Valor IR de sal por porcion" do
+                        expect(@alimento.irsalp).to eq(3150.0)
+                end
+		it "Valor IR de grasas monointeresadas por porcion" do
+                        expect(@alimento.irmonograsaslp).to eq(5.8)
+                end
+		it "Valor IR de poliinsaturadas por porcion" do
+                        expect(@alimento.irpoliinsaturadasp).to eq(11.1)
+                end
+		it "Valor IR de polialcoholes por porcion" do
+                        expect(@alimento.irpolialcoholesp).to eq(0.0)
+                end
+		it "Valor IR de almidon por porcion" do
+                        expect(@alimento.iralmidonp).to eq(0.0)
+                end
+		it "Valor IR de fibra por porcion" do
+                        expect(@alimento.irfibrap).to eq(2.8)
+                end
+		it "Valor IR de vitaminas y minerales por porcion" do
+                        expect(@alimento.irvitaminasp).to eq(49.14)
+                end
+
+	end
+	
+	describe "Tabla de valores" do
+		it" Imprimir tabla de valores" do
+			expect(@alimento.to_s).to eq("Por 100g o 100ml de producto	Ir del producto	Por porcion de X gramos	IR por porcion\n"+
+		" Valor energetico: #{@alimento.valorenergeticoKJ}/#{@alimento.valorenergeticoKcal}\t#{@alimento.irenergeticoKJ}/#{@alimento.irenergeticoKcal}\t#{@alimento.valorenergeticoKJp}/#{@alimento.valorenergeticoKcalp}\t#{@alimento.irenergeticoKJp}/#{@alimento.irenergeticoKcalp}\n"+
+		" Grasas: #{@alimento.cgrasas}\t#{@alimento.irgrasas}\t#{@alimento.valorgrasasp}\t#{@alimento.irgrasasp}\n"+
+		" Grasas monosaturadas: #{@alimento.grasasmono}\t#{@alimento.irmonograsas}\t#{@alimento.valormonograsasp}\t#{@alimento.irmonograsaslp}\n"+
+		" Grasas poliinsaturadas: #{@alimento.grasaspoli}\t#{@alimento.irpoliinsaturadas}\t#{@alimento.valorgrasasp}\t#{@alimento.irpoliinsaturadas}\n"+
+		" Hidratos de carbono: #{@alimento.hcarbono}\t#{@alimento.irhidratos}\t#{@alimento.valorhidratosp}\t#{@alimento.irhidratosp}\n"+
+		" Azucares: #{@alimento.azucares}\t#{@alimento.irazucares}\t#{@alimento.valorazucaresp}\t#{@alimento.irazucaresp}\n"+
+		" Polialcoholes: #{@alimento.polialcoholes}\t#{@alimento.irpolialcoholes}\t#{@alimento.valorpolialcoholesp}\t#{@alimento.irpolialcoholesp}\n"+
+		" Almidon: #{@alimento.almidon}\t#{@alimento.iralmidon}\t#{@alimento.valoralmidonp}\t#{@alimento.iralmidonp}\n"+
+		" Fibra alimentaria: #{@alimento.fibra}\t#{@alimento.irfibra}\t#{@alimento.valorfibrap}\t#{@alimento.irfibrap}\n"+
+		" Sal: #{@alimento.sal}\t#{@alimento.irsal}\t#{@alimento.valorsalp}\t#{@alimento.irsalp}\n"+
+		" Vitamina/mineral: #{@alimento.vitymin}\t#{@alimento.irvitaminas}\t#{@alimento.valorvityminp}\t#{@alimento.irvitaminasp}\n")
+		end
 	end
 end
 
