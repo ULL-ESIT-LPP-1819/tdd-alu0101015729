@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alejandro Gonzalez"]
   spec.email         = ["alu0101015729@ull.edu.es"]
 
-  spec.summary       = %q{Esto es un ejemplo de gema}
-  spec.description   = %q{Esto es una gema que no hace nada}
+  spec.summary       = %q{Esto es una gema para realizar una etiqueta de un producto}
+  spec.description   = %q{Esta gema la utilizamos para comprobar los componentes de un producto}
   spec.homepage      = "https://github.com/ULL-ESIT-LPP-1819/tdd-alu0101015729.git"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
