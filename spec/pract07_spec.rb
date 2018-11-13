@@ -9,10 +9,19 @@ RSpec.describe List do
 		@lista= List.new()	
 	end
 
-	it "Lista vacia" do
-		expect(@lista.vacia).to eq(true)
-	end
+	describe "Funciones Lista" do
+		
 	
+		it "Insertar por tail" do
+			variable=3
+			@lista.insertar_tail(variable)
+			expect(@lista.tail.value).to eq(variable)
+		end
+		
+		it "Lista vacia" do
+			expect(@lista.vacia).to eq(false)
+		end
+	end
 
 
 
