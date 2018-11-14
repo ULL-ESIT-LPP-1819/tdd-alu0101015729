@@ -11,6 +11,9 @@ RSpec.describe List do
 
 	describe "Funciones Lista" do
 		
+		it "Lista vacia" do
+			expect(@lista.vacia).to eq(false)
+		end
 	
 		it "Insertar por tail" do
 			variable=3
@@ -18,9 +21,12 @@ RSpec.describe List do
 			expect(@lista.tail.value).to eq(variable)
 		end
 		
-		it "Lista vacia" do
-			expect(@lista.vacia).to eq(false)
+		it "Extraer por la cola" do 
+			@lista.insertar_tail(@etq1)
+			@lista.insertar_tail(@etq2)
+			expect(@lista.extraer_head).to eq(@etq1)
 		end
+		
 	end
 
 

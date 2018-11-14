@@ -29,6 +29,13 @@ class List
 			@tail=aux
 		end
 	end
+	
+	def extraer_head
+		valor=head.value
+		@head = @head[:next]
+		#@head[:prev] = nil
+		return valor
+	end
 end
 	
 	
