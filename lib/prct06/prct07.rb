@@ -4,8 +4,9 @@ class List
 	attr_reader :head,:tail
 	
 	def initialize
-		@head = Node.new(nil,nil,nil)
-		@tail = @head
+		
+		@head = nil
+		@tail = nil
 	end
 	
 	def vacia
@@ -16,25 +17,27 @@ class List
 	end
 	
 	def insertar_tail(variable)
-		if(vacia)
-			aux = Node.new(variable,nil,nil)
-			aux.next = aux 
-			aux.prev = aux
-			@head = aux
-			@tail = aux
+		if(vacia==true)
+			node = Node.new(variable,nil,nil)
+			@head = node
+			@tail = node
 		else
-			aux = Node.new(variable,@tail,@tail.prev)
-			@tail.next = aux
-			@tail.prev = aux
-			@tail=aux
+			node = Node.new(variable,nil,nil)
+			@tail[:next] = node
+			node[:prev] = @tail
+			@tail = node
 		end
 	end
 	
-	def extraer_head
-		valor=head.value
-		@head = @head[:next]
-		#@head[:prev] = nil
-		return valor
+	def extraer_head	
+		dummy = @head.value 
+		if(@head==@tail)
+			@head,@tail=nil
+		else	
+			@head = @head[:next]
+			@head[:prev] = nil
+		end
+		return dummy
 	end
 end
 	
