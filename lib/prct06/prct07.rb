@@ -30,14 +30,24 @@ class List
 	end
 	
 	def extraer_head	
-		dummy = @head.value 
+		valor = @head.value 
 		if(@head==@tail)
 			@head,@tail=nil
 		else	
 			@head = @head[:next]
 			@head[:prev] = nil
 		end
-		return dummy
+		return valor
+	end
+	
+	def to_s
+		cadena = ""
+       cabeza = @head
+       while (cabeza != nil) do
+           cadena += "#{cabeza.value.to_s}"
+           cabeza = cabeza.next
+       end
+       return cadena
 	end
 end
 	

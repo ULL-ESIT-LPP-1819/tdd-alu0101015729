@@ -47,5 +47,10 @@ RSpec.describe List do
 			expect(vectneg).to eq([8.0,7.0])
 			expect(vectpos).to eq([5.80,3.40,0.50])
 		end
+		
+		it "Metodo to_s" do
+			@lista.insertar_tail(@etq1)
+			expect(@lista.to_s).to eq(@etq1.to_s)
+		end
 	end
 end
