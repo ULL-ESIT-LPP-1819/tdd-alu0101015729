@@ -9,7 +9,7 @@ RSpec.describe Individuo do
 
 	describe "hacer to_s" do
 		it "definir metodo to_s" do
-			expect(@paciente1.to_s).to eq("Nombre: @paciente1.nombre Años: @paciente1.agnos Sexo: @paciente.sexo")
+			expect(@paciente1.to_s).to eq("Nombre: Manuel Gonzalez Perez Años: 35 Sexo: hombre")
 		end
 	end
 end

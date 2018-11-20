@@ -7,6 +7,10 @@ class Individuo
 		@agnos=agnos
 		@sexo=sexo
 	end
+
+	def to_s
+		"Nombre: #{@nombre} Años: #{@agnos} Sexo: #{@sexo}"
+	end
 		
 end
 
