@@ -6,4 +6,10 @@ RSpec.describe Individuo do
 		@paciente4=Individuo.new("Sonia Garcia Santos",22,"mujer")
 		@paciente5=Individuo.new("Jorge González Cabrera",20,"hombre")	
 	end
+
+	describe "hacer to_s" do
+		it "definir metodo to_s" do
+			expect(@paciente1.to_s).to eq("Nombre: @paciente1.nombre Años: @paciente1.agnos Sexo: @paciente.sexo")
+		end
+	end
 end
