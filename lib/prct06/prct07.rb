@@ -9,7 +9,7 @@ class List
 		@tail = nil
 	end
 	
-	def vacia
+	def vacia?
 		if((@head==nil)&&(@tail==nil))
 			return true
 		end
@@ -42,12 +42,12 @@ class List
 	
 	def to_s
 		cadena = ""
-       cabeza = @head
-       while (cabeza != nil) do
-           cadena += "#{cabeza.value.to_s}"
-           cabeza = cabeza.next
-       end
-       return cadena
+		cabeza = @head
+		until (cabeza == nil) do
+			cadena += "#{cabeza.value.to_s}"
+			cabeza = cabeza.next
+		end
+		return cadena
 	end
 end
 	

@@ -10,7 +10,7 @@ RSpec.describe List do
 
 	describe "Funciones Lista" do
 		it "Lista vacia" do
-			expect(@lista.vacia).to eq(true)
+			expect(@lista.vacia?).to eq(true)
 		end
 	
 		it "Insertar por tail" do
