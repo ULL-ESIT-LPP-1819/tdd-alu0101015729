@@ -9,7 +9,7 @@ class List
 		@tail = nil
 	end
 	
-	def vacia?
+	def vacia
 		if((@head==nil)&&(@tail==nil))
 			return true
 		end
