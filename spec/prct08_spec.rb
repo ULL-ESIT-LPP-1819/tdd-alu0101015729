@@ -23,7 +23,7 @@ RSpec.describe Individuo do
 
 	describe "Pruebas de la clase Paciente" do
 		it "definir metodo to_s" do
-			expect(@paciente1.to_s).to eq("Nombre: Manuel Gonzalez Perez Años: 35 Sexo: hombre Peso: 82 Altura: 1.9 Circunferencia Cintura: 80 Circunferencia Cadera: 103" )
+			expect(@paciente1.to_s).to eq("Nombre: Manuel Gonzalez Perez Años: 35 Sexo: hombre Peso: 82 Altura: 1.9")
 		end
 
 		it "metodo IMC" do
@@ -33,22 +33,28 @@ RSpec.describe Individuo do
 			aceptable = []
 			sobrepeso = []
 			obesidad = []
-			@lista.insert_tail(@paciente1)
-			@lista.insert_tail(@paciente2)
-			@lista.insert_tail(@paciente3)
-			@lista.insert_tail(@paciente4)
-			@lista.insert_tail(@paciente5)
+			pocopeso = []
+			@lista.insertar_tail(@paciente1)
+			@lista.insertar_tail(@paciente2)
+			@lista.insertar_tail(@paciente3)
+			@lista.insertar_tail(@paciente4)
+			@lista.insertar_tail(@paciente5)
 			until @lista.vacia do
 				valor=@lista.extraer_head
 				if(valor.imc=="Aceptable")
 					aceptable.push(valor.imc1)
 				elsif(valor.imc=="Sobrepeso")
 					sobrepeso.push(valor.imc1)
-				else
+				elsif(valor.imc=="Obesidad")
 					obesidad.push(valor.imc1)
+				else
+					pocopeso.push(valor.imc1)
 				end
 			end
-			expect(aceptable).to eq([])
+			expect(aceptable).to eq([22.714681440443215, 20.0177299894192])
+			expect(sobrepeso).to eq([27.343749999999996])
+			expect(obesidad).to eq([31.14186851211073])
+			expect(pocopeso).to eq([15.624999999999996])
 		end
 	end
 end

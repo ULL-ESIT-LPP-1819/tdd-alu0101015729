@@ -1,21 +1,19 @@
 class Paciente < Individuo
-	attr_reader :peso,:altura,:circunferenciaca,:circunferenciaci
+	attr_reader :peso,:altura
 
-	def initialize(nombre,edad,sexo,weight,tall,circunca,circunci)
+	def initialize(nombre,edad,sexo,weight,tall)
 		super(nombre,edad,sexo)
 		@peso=weight
 		@altura=tall
-		@circunferenciaca=circunca
-		@circunferenciaci=circunci
 	end
 
 	def to_s
-		"#{super.to_s} Peso: #{@peso} Altura: #{@altura} Circunferencia Cintura: #{@circunferenciaca} Circunferencia Cadera: #{@circunferenciaci}"
+		"#{super.to_s} Peso: #{@peso} Altura: #{@altura}"
 	end
 
 	def imc
 		valor = @peso / ( @altura * @altura )
-		if valor < 5
+		if valor < 18.5
 			return "Delgado"
 		elsif valor >=18.5 and valor < 25
 			return "Aceptable"
@@ -24,5 +22,10 @@ class Paciente < Individuo
 		else
 			return "Obesidad"
 		end
+	end
+
+	def imc1
+		valor = @peso / ( @altura * @altura )
+		return valor
 	end
 end
