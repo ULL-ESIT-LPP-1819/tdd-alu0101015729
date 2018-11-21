@@ -15,9 +15,13 @@ RSpec.describe Individuo do
 		end
 	end
 
-	describe "hacer to_s de la clase Paciente" do
+	describe "Pruebas de la clase Paciente" do
 		it "definir metodo to_s" do
 			expect(@paciente1.to_s).to eq("Nombre: Manuel Gonzalez Perez Años: 35 Sexo: hombre Peso: 82 Altura: 1.9 Circunferencia Cintura: 80 Circunferencia Cadera: 103" )
+		end
+
+		it "metodo IMC" do
+			expect(@paciente1.imc).to eq("Aceptable")
 		end
 	end
 end
