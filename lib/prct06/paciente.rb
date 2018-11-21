@@ -8,4 +8,8 @@ class Paciente < Individuo
 		@circunferenciaca=circunca
 		@circunferenciaci=circunci
 	end
+
+	def to_s
+		"#{super.to_s} Peso: #{@peso} Altura: #{@altura} Circunferencia Cintura: #{@circunferenciaca} Circunferencia Cadera: #{@circunferenciaci}"
+	end
 end
