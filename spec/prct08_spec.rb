@@ -15,6 +15,20 @@ RSpec.describe Individuo do
 		@lista=List.new()	
 	end
 
+	describe "Pruebas de clase para Individuo y Paciente" do
+		it"Individuo" do
+			expect(@persona1.class).to eq(Individuo)
+			expect(@persona1.class.superclass).to eq(Object)
+			expect(@persona1.instance_of? Object).to eq(false)
+			expect(@persona1.is_a? Individuo).to eq(true)
+		end
+		 it"Paciente" do
+			expect(@paciente1.class).to eq(Paciente)
+			expect(@paciente1.class.superclass).to eq(Individuo)
+			expect(@paciente1.instance_of? Object).to eq(false)
+			expect(@paciente1.is_a? Paciente).to eq(true)
+		end
+	end
 	describe "hacer to_s de la clase Individuo" do
 		it "definir metodo to_s" do
 			expect(@persona1.to_s).to eq("Nombre: Manuel Gonzalez Perez Años: 35 Sexo: hombre")
