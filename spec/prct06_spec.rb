@@ -219,8 +219,16 @@ RSpec.describe Prct06 do
 		end
 		it "Mayor" do
 			@ejemplo=Etiqueta.new("Yatekomo",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10,5,79)
-			expect(@alimento > @ejemplo).to eq(false)
+			expect(@alimento > @ejemplo).to eq(true)
 		end
+		it "Menor o Igual" do
+			 @ejemplo=Etiqueta.new("Arroz",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10,5,79)
+			 expect(@alimento <= @ejemplo).to eq(false)
+		end
+		it "Mayor o Igual" do
+			@ejemplo=Etiqueta.new("Arroz",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10,5,79)
+			expect(@alimento >= @ejemplo).to eq(true)
+									                  end
 	end
 end
 
