@@ -217,4 +217,7 @@ class Etiqueta
 		" Sal: #{sal}\t#{irsal}\t#{valorsalp}\t#{irsalp}\n"+
 		" Vitamina/mineral: #{vitymin}\t#{irvitaminas}\t#{valorvityminp}\t#{irvitaminasp}\n"
 	end
+	def <=>(ejem)
+		return self.valorenergeticoKJ <=> ejem.valorenergeticoKJ
+	end
 end
