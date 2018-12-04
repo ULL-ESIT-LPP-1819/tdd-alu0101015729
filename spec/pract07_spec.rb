@@ -53,4 +53,24 @@ RSpec.describe List do
 			expect(@lista.to_s).to eq(@etq1.to_s)
 		end
 	end
+	describe "Enumerar listas" do
+		it "Sumar elementos lista" do
+			nuevo=2
+			@lista.insertar_tail(nuevo)
+			nuevo=5
+			@lista.insertar_tail(nuevo)
+			val=0
+			@en.each { |i| val += i}
+			expect(val).to eq(7)
+		end
+		it "Maximo" do
+			nuevo=7
+			@lista.insertar_tail(nuevo)
+			nuevo=6
+			@lista.insertar_tail(nuevo)
+			nuevo=10
+			@lista.insertar_tail(nuevo)
+			expect(@en.max).to eq(4)
+		end
+	end
 end
