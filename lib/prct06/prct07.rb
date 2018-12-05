@@ -6,20 +6,20 @@ class List
 	include Comparable
 
 	attr_reader :head,:tail
-	
+	#Funcion que inicializa las variables de instancia de la clase	
 	def initialize
 		
 		@head = nil
 		@tail = nil
 	end
-	
+	#Funcion que devuelve si la lista esta vacia o no
 	def vacia
 		if((@head==nil)&&(@tail==nil))
 			return true
 		end
 		return false
 	end
-	
+	#Funcion que inserta una variable en la lista por la cola
 	def insertar_tail(variable)
 		if(vacia==true)
 			node = Node.new(variable,nil,nil)
@@ -32,7 +32,7 @@ class List
 			@tail = node
 		end
 	end
-	
+	#funcion que permite extraer por la cabeza
 	def extraer_head	
 		valor = @head.value 
 		if(@head==@tail)
@@ -43,7 +43,7 @@ class List
 		end
 		return valor
 	end
-	
+	#funcion que formatea la salida como un string
 	def to_s
 		cadena = ""
 		cabeza = @head
@@ -53,7 +53,7 @@ class List
 		end
 		return cadena
 	end
-
+	#funcion para comparar los miembros de una lista
 	def each(&bloque)
 		actual=@head
 		while actual != nil do
