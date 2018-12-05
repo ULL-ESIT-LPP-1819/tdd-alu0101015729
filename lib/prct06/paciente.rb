@@ -1,6 +1,6 @@
 class Paciente < Individuo
 	attr_reader :peso,:altura
-
+	include Enumerable
 	def initialize(nombre,edad,sexo,weight,tall)
 		super(nombre,edad,sexo)
 		@peso=weight

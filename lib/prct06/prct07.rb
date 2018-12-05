@@ -1,6 +1,10 @@
 Node = Struct.new(:value,:next,:prev)
 
 class List
+
+	include Enumerable
+	include Comparable
+
 	attr_reader :head,:tail
 	
 	def initialize
@@ -48,6 +52,14 @@ class List
 			cabeza = cabeza.next
 		end
 		return cadena
+	end
+
+	def each(&bloque)
+		actual=@head
+		while actual != nil do
+			yield actual.value
+			actual=actual.next
+		end
 	end
 end
 	
