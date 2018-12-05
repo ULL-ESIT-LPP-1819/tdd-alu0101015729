@@ -53,4 +53,50 @@ RSpec.describe List do
 			expect(@lista.to_s).to eq(@etq1.to_s)
 		end
 	end
+	describe "Enumerar listas" do
+		it "elementos lista" do
+			nuevo=2
+			@lista.insertar_tail(nuevo)
+			nuevo=5
+			@lista.insertar_tail(nuevo)
+			val=0
+			#@lista.each {|i| salida << i.to_s << " "}
+			#expect(salida).to eq("2 5 ")
+		end
+		it "Maximo" do
+			nuevo=7
+			@lista.insertar_tail(nuevo)
+			nuevo=6
+			@lista.insertar_tail(nuevo)
+			nuevo=10
+			@lista.insertar_tail(nuevo)
+			expect(@lista.max).to eq(10)
+		end
+		it "Minimo" do
+			@lista.insertar_tail(8)
+			@lista.insertar_tail(10)
+			@lista.insertar_tail(5)
+			expect(@lista.min).to eq(5)
+		end
+
+		it "Orddenar" do
+			@lista.insertar_tail(15)
+			@lista.insertar_tail(10)
+			@lista.insertar_tail(9)
+			expect(@lista.sort).to eq([9, 10, 15])
+		end
+
+		it "Select" do
+			@lista.insertar_tail(19)
+			@lista.insertar_tail(90)
+			@lista.insertar_tail(7)
+			expect(@lista.select {|v| v==90 }).to eq([90])
+		end
+		it "collect" do
+			@lista.insertar_tail(52)
+			@lista.insertar_tail(63)
+			expect(@lista.collect{2}).to eq([2,2])
+		end
+
+	end
 end
