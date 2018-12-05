@@ -74,4 +74,31 @@ RSpec.describe Individuo do
 			expect(@paciente1.imc1 >= @paciente2.imc1).to eq(false)
 		end
 	end
+	describe "Enumerable" do
+		it "max" do
+			@lista.insertar_tail(@paciente1)
+			@lista.insertar_tail(@paciente2)
+			expect(@lista.max{|a,b| a.imc1 <=> b.imc1}).to eq(@paciente1)
+		end
+		it "select" do
+			@lista.insertar_tail(@paciente3)
+			@lista.insertar_tail(@paciente4)
+			expect(@lista.select { |v| v.imc1==15.624999999999996}).to eq([@paciente3])
+		end
+		it "min" do
+			@lista.insertar_tail(@paciente1)
+			@lista.insertar_tail(@paciente2)
+			expect(@lista.min{|a,b| a.imc1 <=> b.imc1}).to eq(@paciente1)
+		end
+		it "collect" do
+			@lista.insertar_tail(@paciente5)
+			@lista.insertar_tail(@paciente1)
+			expect(@lista.collect{"Michael"}).to eq(["Michael","Michael"])
+		end
+		it "sort" do
+			@lista.insertar_tail(@paciente2)
+			@lista.insertar_tail(@paciente4)
+			expect(@lista.sort{|a,b| a.imc1 <=> b.imc1}).to eq([@paciente4,@paciente2])
+		end
+	end
 end
