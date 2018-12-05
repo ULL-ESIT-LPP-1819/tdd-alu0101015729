@@ -57,4 +57,21 @@ RSpec.describe Individuo do
 			expect(pocopeso).to eq([15.624999999999996])
 		end
 	end
+	describe "Comparable" do
+		it "Menor" do
+			expect(@paciente1.imc1 < @paciente2.imc1).to eq(true)
+		end
+		it "Mayor" do
+			expect(@paciente1.imc1 > @paciente2.imc1).to eq(false)
+		end
+		it "Igual" do
+			expect(@paciente1.imc1 == @paciente2.imc1).to eq(false)
+		end
+		it "Menor o igual" do
+			expect(@paciente1.imc1 <= @paciente2.imc1).to eq(true)
+		end
+		it "Mayor o igual" do
+			expect(@paciente1.imc1 >= @paciente2.imc1).to eq(false)
+		end
+	end
 end
