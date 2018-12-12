@@ -1,9 +1,9 @@
 class Etiqueta
 	include Comparable
 
-	attr_reader :nombre,:cgrasas,:cgrasassa,:hcarbono,:azucares,:proteinas,:sal,:grasasmono,:grasaspoli,:polialcoholes,:almidon,:fibra,:vitymin,:porciones,:tamano
+	attr_reader :nombre,:cgrasas,:cgrasassa,:hcarbono,:azucares,:proteinas,:sal,:grasasmono,:grasaspoli,:polialcoholes,:almidon,:fibra,:vitymin
 	#funcion que initializa las variables de instacia de la clase
-	def initialize(nombre,cgrasas,cgrasassa,hcarbono,azucares,proteinas,sal,grasasmono,grasaspoli,polialcoholes,almidon,fibra,vita,porciones,tamano)
+	def initialize(nombre,cgrasas,cgrasassa,hcarbono,azucares,proteinas,sal,grasasmono,grasaspoli,polialcoholes,almidon,fibra,vita)
 		@nombre=nombre
 		@cgrasas=cgrasas
 		@cgrasassa=cgrasassa
@@ -17,8 +17,7 @@ class Etiqueta
 		@almidon=almidon
 		@fibra=fibra
 		@vitymin=vita
-		@porciones=porciones
-		@tamano=tamano
+
 	end
 	#funcion que retorna el valor de los KJ
 	def valorenergeticoKJ

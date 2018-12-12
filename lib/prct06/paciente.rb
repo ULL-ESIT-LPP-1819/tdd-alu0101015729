@@ -36,7 +36,7 @@ class Paciente < Individuo
 	end
 
 	def gasto_energetico_basal
-		if(@sexo="hombre")
+		if(@sexo='hombre')
 			gasto_energetico_basal=(10*@peso)+(6.25*@altura)-(5*@agnos)+5
 		else
 			gasto_energetico_basal=(10*@peso)+(6.25*@altura)-(5*@agnos)-161
@@ -52,7 +52,7 @@ class Paciente < Individuo
 	end
 
 	def gasto_energetico_total
-		gasto_energetico_total=gasto_energetico_basal+efecto_termogeno+gasto_actividad_fisica
+		gasto_energetico_total = gasto_energetico_basal + efecto_termogeno + gasto_actividad_fisica
 	end
 
 end

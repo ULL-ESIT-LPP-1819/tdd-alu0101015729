@@ -12,7 +12,18 @@ RSpec.describe Individuo do
 		@paciente4=Paciente.new("Sonia Garcia Santos",22,"mujer",70,16,0.54)
 		@paciente5=Paciente.new("Jorge González Cabrera",20,"hombre",70,187,0.12)
 
-		@lista=List.new()	
+		@lista=List.new()
+		@menu1=List.new()
+		@menu2=List.new()
+		@menu3=List.new()
+		@menu4=List.new()
+		@menu5=List.new()
+
+		@et1 = Etiqueta.new('Chocolate', 29, 15.1, 8.1, 0.7, 47, 50.1, 0, 3.1, 5.9, 4.2, 0.02, 3)
+		@et2 = Etiqueta.new('Nutela', 57.16 ,8.12 , 37.28, 6.72,14.8 ,3.97 ,0 ,0 ,10.3 ,17.64 , 0.2, 0)
+		@et3 = Etiqueta.new('Chuleta', 12, 6.54, 6.07, 1.09, 0.8, 0, 0, 0, 0, 19.1, 7, 0.5)
+		@et4 = Etiqueta.new('Aceite',92, 14, 69, 9.2, 0, 0, 0, 0, 2.9, 0, 8, 0)
+		@et5 = Etiqueta.new('Colacao0%', 5.8, 3, 2, 0.8, 40, 5, 0,0, 22, 9.2, 0.04, 0)
 	end
 
 	describe "Pruebas de clase para Individuo y Paciente" do
@@ -115,6 +126,7 @@ RSpec.describe Individuo do
 			expect(@lista.sort{|a,b| a.imc1 <=> b.imc1}).to eq([@paciente2,@paciente4])
 		end
 	end
+	#Practica 10
 	describe"menu" do
 		it"gasto_energetico_total" do
 			expect(@paciente1.gasto_energetico_total).to eq(2021.25)
@@ -128,5 +140,9 @@ RSpec.describe Individuo do
 		it"peso_teorico_ideal" do
 			expect(@paciente1.peso_teorico_ideal).to eq(80.0)
 		end
+#			expect(@menu2.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
+#			expect(@menu3.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
+#			expect(@menu4.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
+#			expect(@menu5.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
 	end
 end

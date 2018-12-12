@@ -1,7 +1,25 @@
 RSpec.describe Prct06 do
 
         before :each do
-                @alimento=Etiqueta.new("chocobollo",20.70,2.80,47.30,0.00,9.00,270.00,5.80,11.10,0.00,0.00,2.00,35.10,1,75)
+                @alimento=Etiqueta.new("chocobollo",20.70,2.80,47.30,0.00,9.00,270.00,5.80,11.10,0.00,0.00,2.00,35.10)
+		@paciente1=Paciente.new("Manuel Gonzalez Perez",22,'hombre',70,160,0.12)
+		@paciente2=Paciente.new("Kevin Garcia Peña",23,"hombre",40,150,0.27)
+		@paciente3=Paciente.new("Miriam Rodriguez Mendez",20,"mujer",70,187,0.0)
+		@paciente4=Paciente.new("Sonia Garcia Santos",20,"mujer",500,190,0.0)
+		@paciente5=Paciente.new("Jorge González Cabrera",20,"hombre",56,167,0.54)
+
+		@menu1=List.new()
+		@menu2=List.new()
+		@menu3=List.new()
+		@menu4=List.new()
+		@menu5=List.new()
+
+		@etiqueta1 = Etiqueta.new('Chocolate', 0, 0, 0, 0, 0, 0, 0, 58.43, 0,0, 0,0)
+		@etiqueta6 = Etiqueta.new('Mantequilla', 0, 0, 0, 0, 0, 0, 0, 21.014, 0,0, 0,0)
+		@etiqueta2 = Etiqueta.new('Nutela', 57.16 ,8.12 , 37.28, 6.72,14.8 ,3.97 ,0 ,0 ,10.3 ,17.64 , 0.2, 0)
+		@etiqueta3 = Etiqueta.new('Chuleta', 12, 6.54, 6.07, 1.09, 0.8, 0, 0, 0, 0, 19.1, 7, 0.5)
+		@etiqueta4 = Etiqueta.new('Aceite',92, 14, 69, 9.2, 0, 0, 0, 0, 2.9, 0, 8, 0)
+		@etiqueta5 = Etiqueta.new('Colacao0%', 5.8, 3, 2, 0.8, 40, 5, 0,0, 22, 9.2, 0.04, 0)
         end	
 	describe "# valor de los elementos de la etiqueta" do
 		it "Tipo de alimento" do
@@ -49,12 +67,6 @@ RSpec.describe Prct06 do
 		end
 		it "Valor energetico en kcal" do
                         expect(@alimento.valorenergeticoKcal()).to eq(2212.8)
-                end
-		it "Cantidad de porciones" do
-                        expect(@alimento.porciones).to eq(1)
-                end
-		it "Peso por porcion" do
-                        expect(@alimento.tamano).to eq(75)
                 end
 	end
 	
@@ -210,25 +222,80 @@ RSpec.describe Prct06 do
 
 	describe "Comparable" do
 		it "Menor" do
-			@ejemplo=Etiqueta.new("Pipas",21.50,2.90,44.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10,5,79)
+			@ejemplo=Etiqueta.new("Pipas",21.50,2.90,44.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10)
 			expect(@alimento < @ejemplo).to eq(false)
 		end
 		it "Igual" do
-			@ejemplo=Etiqueta.new("choco",20.70,2.80,47.30,0.00,9.00,270.00,5.80,11.10,0.00,0.00,2.00,35.10,1,75)
+			@ejemplo=Etiqueta.new("choco",20.70,2.80,47.30,0.00,9.00,270.00,5.80,11.10,0.00,0.00,2.00,35.10)
 			expect(@ejemplo == @alimento).to eq(true)
 		end
 		it "Mayor" do
-			@ejemplo=Etiqueta.new("Yatekomo",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10,5,79)
+			@ejemplo=Etiqueta.new("Yatekomo",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10)
 			expect(@alimento > @ejemplo).to eq(true)
 		end
 		it "Menor o Igual" do
-			 @ejemplo=Etiqueta.new("Arroz",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10,5,79)
+			 @ejemplo=Etiqueta.new("Arroz",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10)
 			 expect(@alimento <= @ejemplo).to eq(false)
 		end
 		it "Mayor o Igual" do
-			@ejemplo=Etiqueta.new("Arroz",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10,5,79)
+			@ejemplo=Etiqueta.new("Arroz",20.70,2.80,47.30,1.00,8.00,6.00,9.00,13.90,0.60,0.90,3.50,37.10)
 			expect(@alimento >= @ejemplo).to eq(true)
-									                  end
+		end
+	end
+	describe "menu" do
+		it "menu" do
+			@menu1.insertar_tail(@etiqueta1)
+			
+
+			@menu2.insertar_tail(@etiqueta4)
+			@menu2.insertar_tail(@etiqueta5)
+			@menu2.insertar_tail(@etiqueta1)
+			
+			@menu3.insertar_tail(@etiqueta3)
+			@menu3.insertar_tail(@etiqueta4)
+			
+			@menu4.insertar_tail(@etiqueta4)
+			@menu4.insertar_tail(@etiqueta5)
+			
+
+			@menu5.insertar_tail(@etiqueta4)
+			@menu5.insertar_tail(@etiqueta5)
+			
+			
+			gastototal= (@paciente1.gasto_energetico_total)
+			kjmenu1 = @menu1.reduce(0) {|sum, num| (sum + num.valorenergeticoKJ).round(2) }
+			percenttop=(kjmenu1*0.9).round(2)
+			percentbottom=(kjmenu1*1.1).round(2)
+			expect(gastototal.between?(percenttop,percentbottom)).to eq(true)
+
+			
+			gastototal2= (@paciente2.gasto_energetico_total)
+			kjmenu2 = @menu2.reduce(0) {|sum, num| (sum + num.valorenergeticoKJ).round(2) }
+			percenttop=(kjmenu2*0.9).round(2)
+			percentbottom=(kjmenu2*1.1).round(2)
+			expect(gastototal2.between?(percenttop,percentbottom)).to eq(false)
+
+		
+			gastototal= (@paciente3.gasto_energetico_total)
+			kjmenu3 = @menu3.reduce(0) {|sum, num| (sum + num.valorenergeticoKJ).round(2) }
+			percenttop=(kjmenu3*0.9).round(2)
+			percentbottom=(kjmenu3*1.1).round(2)
+			expect(gastototal.between?(percenttop,percentbottom)).to eq(false)
+			
+		
+			gastototal= (@paciente4.gasto_energetico_total)
+			kjmenu4 = @menu4.reduce(0) {|sum, num| (sum + num.valorenergeticoKJ).round(2)}
+			percenttop=(kjmenu4*0.9).round(2)
+			percentbottom=(kjmenu4*1.1).round(2)
+			expect(gastototal.between?(percenttop,percentbottom)).to eq(true)
+
+			
+			gastototal= (@paciente5.gasto_energetico_total)
+			kjmenu5 = @menu5.reduce(0) {|sum, num| (sum + num.valorenergeticoKJ).round(2) }
+			percenttop=(kjmenu5*0.9).round(2)
+			percentbottom=(kjmenu5*1.1).round(2)
+			expect(gastototal.between?(percenttop,percentbottom)).to eq(false)
+		end
 	end
 end
 

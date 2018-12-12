@@ -1,10 +1,10 @@
 RSpec.describe List do
 	before :each do
-		@etq1=Etiqueta.new("Chocobollo",20.70,2.80,47.30,0.00,9.00,5.80,5.80,11.10,0.00,0.00,2.00,35.10,1,75)
-		@etq2=Etiqueta.new("Pipas",20.70,2.80,47.30,0.00,9.00,8.00,7.20,11.10,0.00,0.00,2.00,35.10,1,75)
-		@etq3=Etiqueta.new("Yatekomo",20.70,2.80,47.30,0.00,9.00,7.00,3.40,11.10,0.00,0.00,2.00,35.10,1,75)
-		@etq4=Etiqueta.new("Hamburguesa",20.70,2.80,47.30,0.00,9.00,3.40,6.50,11.10,0.00,0.00,2.00,35.10,1,75)
-		@etq5=Etiqueta.new("Agua",20.70,2.80,47.30,0.00,9.00,0.50,0.50,11.10,0.00,0.00,2.00,35.10,1,75)	
+		@etq1=Etiqueta.new("Chocobollo",20.70,2.80,47.30,0.00,9.00,5.80,5.80,11.10,0.00,0.00,2.00,35.10)
+		@etq2=Etiqueta.new("Pipas",20.70,2.80,47.30,0.00,9.00,8.00,7.20,11.10,0.00,0.00,2.00,35.10)
+		@etq3=Etiqueta.new("Yatekomo",20.70,2.80,47.30,0.00,9.00,7.00,3.40,11.10,0.00,0.00,2.00,35.10)
+		@etq4=Etiqueta.new("Hamburguesa",20.70,2.80,47.30,0.00,9.00,3.40,6.50,11.10,0.00,0.00,2.00,35.10)
+		@etq5=Etiqueta.new("Agua",20.70,2.80,47.30,0.00,9.00,0.50,0.50,11.10,0.00,0.00,2.00,35.10)	
 		@lista= List.new()	
 	end
 
@@ -60,8 +60,6 @@ RSpec.describe List do
 			nuevo=5
 			@lista.insertar_tail(nuevo)
 			val=0
-			#@lista.each {|i| salida << i.to_s << " "}
-			#expect(salida).to eq("2 5 ")
 		end
 		it "Maximo" do
 			nuevo=7
