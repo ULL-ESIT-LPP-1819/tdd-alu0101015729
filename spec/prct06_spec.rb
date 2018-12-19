@@ -352,7 +352,7 @@ RSpec.describe Prct06 do
 			@men10=[@etiqueta5,@etiqueta2].reduce(:+).round(2)
 			@array_menu=[@men1,@men2,@men3,@men4,@men5,@men6,@men7,@men8,@men9,@men10]
 			
-			expect(@array_menu.orden_sort).to eq([@men7,@men9,@men5,@men2,@men10,@men1,@men3,@men4,@men8,@men6])
+			expect(@array_menu.sort{|a,b| a<=>b}).to eq([@men7,@men9,@men5,@men2,@men10,@men1,@men3,@men4,@men8,@men6])
 		end
 	end
 end

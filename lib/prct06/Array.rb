@@ -29,7 +29,4 @@ class Array
 		end
 		return self
 	end
-
-	def orden_sort
-	end
 end	
