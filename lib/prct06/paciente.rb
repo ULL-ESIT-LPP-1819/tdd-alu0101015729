@@ -54,5 +54,8 @@ class Paciente < Individuo
 	def gasto_energetico_total
 		gasto_energetico_total = gasto_energetico_basal + efecto_termogeno + gasto_actividad_fisica
 	end
+	def <=>(other)
+		self.gasto_energetico_total <=> other.gasto_energetico_total
+	end
 
 end

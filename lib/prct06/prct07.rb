@@ -61,6 +61,24 @@ class List
 			actual=actual.next
 		end
 	end
+	def orden_for
+		ar= []
+		actual =@head
+		for i in self do
+			ar.push(actual.value)
+			actual=actual.next
+		end
+		ar.orden_for
+	end
+	def orden_each
+		ar= []
+		actual =@head
+		for i in self do
+			ar.push(actual.value)
+			actual=actual.next
+		end
+		ar.orden_for
+	end
 end
 	
 	
