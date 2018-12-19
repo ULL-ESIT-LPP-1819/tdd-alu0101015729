@@ -95,6 +95,31 @@ RSpec.describe List do
 			@lista.insertar_tail(63)
 			expect(@lista.collect{2}).to eq([2,2])
 		end
-
+	end
+	describe "Ordenacion por Listas" do
+		it"Ordenacion por for"do
+			@paciente1=Paciente.new("Manuel Gonzalez Perez",22,'hombre',70,160,0.12)
+			@paciente2=Paciente.new("Kevin Garcia Peña",23,"hombre",40,150,0.27)
+			@paciente3=Paciente.new("Miriam Rodriguez Mendez",20,"mujer",70,187,0.0)
+			@paciente4=Paciente.new("Sonia Garcia Santos",20,"mujer",500,190,0.0)
+			@paciente5=Paciente.new("Jorge González Cabrera",20,"hombre",56,167,0.54)
+			@paciente6=Paciente.new("Oscar",22,"hombre",54,170,0.27)
+			@paciente7=Paciente.new("Ramiro Colvezca",28,"hombre",87,200,0.0)
+			@paciente8=Paciente.new("Jesus Gonzalez Pimentel",54,"hombre",90,179,0.12)
+			@paciente9=Paciente.new("Maria Jesus",26,"hombre",56,132,0.54)
+			@paciente10=Paciente.new("Alexandra",35,"hombre",56,167,0.0)
+			@lista_pac=List.new()
+			@lista_pac.insertar_tail(@paciente1)
+			@lista_pac.insertar_tail(@paciente2)
+			@lista_pac.insertar_tail(@paciente3)
+			@lista_pac.insertar_tail(@paciente4)
+			@lista_pac.insertar_tail(@paciente5)
+			@lista_pac.insertar_tail(@paciente6)
+			@lista_pac.insertar_tail(@paciente7)
+			@lista_pac.insertar_tail(@paciente8)
+			@lista_pac.insertar_tail(@paciente9)
+			@lista_pac.insertar_tail(@paciente10)
+			expect(@lista_pac.orden_for).to eq(1)
+		end
 	end
 end
