@@ -1,6 +1,8 @@
 require "bundler/setup"
 require "prct06"
 require "prct06/individuo"
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

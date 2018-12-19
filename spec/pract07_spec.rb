@@ -1,3 +1,5 @@
+require 'benchmark'
+
 RSpec.describe List do
 	before :each do
 		@etq1=Etiqueta.new("Chocobollo",20.70,2.80,47.30,0.00,9.00,5.80,5.80,11.10,0.00,0.00,2.00,35.10)
@@ -121,7 +123,13 @@ RSpec.describe List do
 			@lista_pac.insertar_tail(@paciente10.gasto_energetico_total)
 			expect(@lista_pac.orden_for).to eq([1577.125, 1681.675, 1945.9, 1951.125, 2051.575, 2066.4, 2139.575, 2183.5, 2474.35, 6701.75])
 			expect(@lista_pac.orden_each).to eq([1577.125, 1681.675, 1945.9, 1951.125, 2051.575, 2066.4, 2139.575, 2183.5, 2474.35, 6701.75])
-			expect(@lista_pac.sort{|a,b| a<=>b}).to eq([1577.125, 1681.675, 1945.9, 1951.125, 2051.575, 2066.4, 2139.575, 2183.5, 2474.35, 6701.75])
+			expect(@lista_pac.sort{|a,b| a<=>b}).to eq([1577.125, 1681.675, 1945.9, 1951.125, 2051.575, 2066.4, 2139.575, 2183.5, 2474.35, 6701.75]) 
+			n = 50000
+			Benchmark.bm do |x|
+				x.report("for lista:") {n.times do @lista_pac.orden_for; end}
+				x.report("each lista:"){n.times do @lista_pac.orden_each; end}
+				x.report("sort lista:"){n.times do @lista_pac.sort{ |a,b| a<=>b};end}
+			end
 		end
 	end
 end

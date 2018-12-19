@@ -1,3 +1,5 @@
+require'benchmark'
+
 RSpec.describe Prct06 do
 
         before :each do
@@ -353,6 +355,12 @@ RSpec.describe Prct06 do
 			@array_menu=[@men1,@men2,@men3,@men4,@men5,@men6,@men7,@men8,@men9,@men10]
 			
 			expect(@array_menu.sort{|a,b| a<=>b}).to eq([@men7,@men9,@men5,@men2,@men10,@men1,@men3,@men4,@men8,@men6])
+			n = 50000
+			Benchmark.bm do |x|
+				x.report("for array:") {n.times do @array_menu.orden_for; end}
+				x.report("each array:"){n.times do @array_menu.orden_each; end}
+				x.report("sort array:"){n.times do @array_menu.sort{ |a,b| a<=>b}; end}
+			end
 		end
 	end
 end
