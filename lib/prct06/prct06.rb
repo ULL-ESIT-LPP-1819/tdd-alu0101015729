@@ -260,4 +260,7 @@ class Etiqueta
 	def <=>(ejem)
 		return self.valorenergeticoKJ <=> ejem.valorenergeticoKJ
 	end
+	def +(other)
+		self.valorenergeticoKJ + other.valorenergeticoKJ
+	end
 end

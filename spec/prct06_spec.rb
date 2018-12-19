@@ -297,6 +297,49 @@ RSpec.describe Prct06 do
 			expect(gastototal.between?(percenttop,percentbottom)).to eq(false)
 		end
 	end
+	#Practica 11
+	describe"Metodos Ordenacion de Array" do
+		it"Ordenacion for" do
+			@men1=[@etiqueta1,@etiqueta2].reduce(:+).round(2)
+			@men2=[@etiqueta2,@etiqueta3].reduce(:+).round(2)
+			@men3=[@etiqueta3,@etiqueta4].reduce(:+).round(2)
+			@men4=[@etiqueta4,@etiqueta5].reduce(:+).round(2)
+			@men5=[@etiqueta1,@etiqueta5].reduce(:+).round(2)
+			@men6=[@etiqueta2,@etiqueta4].reduce(:+).round(2)
+			@men7=[@etiqueta3,@etiqueta5].reduce(:+).round(2)
+			@men8=[@etiqueta1,@etiqueta4].reduce(:+).round(2)
+			@men9=[@etiqueta1,@etiqueta3].reduce(:+).round(2)
+			@men10=[@etiqueta5,@etiqueta2].reduce(:+).round(2)
+			@array_menu=[@men1,@men2,@men3,@men4,@men5,@men6,@men7,@men8,@men9,@men10]
+			expect(@men1).to eq(5966.36)
+			expect(@men2).to eq(4987.92)
+			expect(@men3).to eq(6371.47)
+			expect(@men4).to eq(6729.32)
+			expect(@men5).to eq(3703.23)
+			expect(@men6).to eq(8992.45)
+			expect(@men7).to eq(2724.79)
+			expect(@men8).to eq(7349.91)
+			expect(@men9).to eq(3345.38)
+			expect(@men10).to eq(5345.77)
+			expect(@array_menu.orden_for).to eq([@men7,@men9,@men5,@men2,@men10,@men1,@men3,@men4,@men8,@men6])
+
+		end
+		it"Ordenacion each" do
+			@men1=[@etiqueta1,@etiqueta2].reduce(:+).round(2)
+			@men2=[@etiqueta2,@etiqueta3].reduce(:+).round(2)
+			@men3=[@etiqueta3,@etiqueta4].reduce(:+).round(2)
+			@men4=[@etiqueta4,@etiqueta5].reduce(:+).round(2)
+			@men5=[@etiqueta1,@etiqueta5].reduce(:+).round(2)
+			@men6=[@etiqueta2,@etiqueta4].reduce(:+).round(2)
+			@men7=[@etiqueta3,@etiqueta5].reduce(:+).round(2)
+			@men8=[@etiqueta1,@etiqueta4].reduce(:+).round(2)
+			@men9=[@etiqueta1,@etiqueta3].reduce(:+).round(2)
+			@men10=[@etiqueta5,@etiqueta2].reduce(:+).round(2)
+			
+			@array_menu=[@men1,@men2,@men3,@men4,@men5,@men6,@men7,@men8,@men9,@men10]
+			expect(@array_menu.orden_each).to eq([@men7,@men9,@men5,@men2,@men10,@men1,@men3,@men4,@men8,@men6])
+		end
+	end
 end
 
 
