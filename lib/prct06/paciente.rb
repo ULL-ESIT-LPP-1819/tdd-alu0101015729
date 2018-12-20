@@ -14,7 +14,8 @@ class Paciente < Individuo
 	end
 	#funcion que devuelve tu estado fisico
 	def imc
-		valor = @peso / ( @altura * @altura )
+		@alt=@altura/100.00
+		valor = (@peso) / ( @alt * @alt )
 		if valor < 18.5
 			return "Delgado"
 		elsif valor >=18.5 and valor < 25
@@ -27,7 +28,8 @@ class Paciente < Individuo
 	end
 	#funcion que devuelve tu indice de masa corporal
 	def imc1
-		valor = @peso / ( @altura * @altura )
+		@alt=@altura/100.00
+		valor = @peso / ( @alt * @alt )
 		return valor
 	end
 

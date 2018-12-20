@@ -9,7 +9,7 @@ RSpec.describe Individuo do
 		@paciente1=Paciente.new("Manuel Gonzalez Perez",35,"hombre",82,190,0.0)
 		@paciente2=Paciente.new("Kevin Garcia Peña",20,"hombre",90,170,0.12)
 		@paciente3=Paciente.new("Miriam Rodriguez Mendez",23,"mujer",40,160,0.27)
-		@paciente4=Paciente.new("Sonia Garcia Santos",22,"mujer",70,16,0.54)
+		@paciente4=Paciente.new("Sonia Garcia Santos",22,"mujer",70,160,0.54)
 		@paciente5=Paciente.new("Jorge González Cabrera",20,"hombre",70,187,0.12)
 
 		@lista=List.new()
@@ -52,7 +52,7 @@ RSpec.describe Individuo do
 		end
 
 		it "metodo IMC" do
-			expect(@paciente1.imc).to eq("Delgado")
+			expect(@paciente1.imc).to eq("Aceptable")
 		end
 		it "Comparaciones IMC" do
 			aceptable = []
@@ -64,51 +64,57 @@ RSpec.describe Individuo do
 			@lista.insertar_tail(@paciente3)
 			@lista.insertar_tail(@paciente4)
 			@lista.insertar_tail(@paciente5)
+		
+			expect(@paciente1.imc1.round(2)).to eq(22.71)
+			expect(@paciente2.imc1.round(2)).to eq(31.14)
+			expect(@paciente3.imc1.round(2)).to eq(15.62)
+			expect(@paciente4.imc1.round(2)).to eq(27.34)
+			expect(@paciente5.imc1.round(2)).to eq(20.02)
 			until @lista.vacia do
 				valor=@lista.extraer_head
 				if(valor.imc=="Aceptable")
-					aceptable.push(valor.imc1)
+					aceptable.push(valor.imc1.round(2))
 				elsif(valor.imc=="Sobrepeso")
-					sobrepeso.push(valor.imc1)
+					sobrepeso.push(valor.imc1.round(2))
 				elsif(valor.imc=="Obesidad")
-					obesidad.push(valor.imc1)
+					obesidad.push(valor.imc1.round(2))
 				else
-					pocopeso.push(valor.imc1)
+					pocopeso.push(valor.imc1.round(2))
 				end
 			end
-			expect(aceptable).to eq([])
-			expect(sobrepeso).to eq([])
-			expect(obesidad).to eq([])
-			expect(pocopeso).to eq([0, 0, 0, 0, 0])
+			expect(aceptable).to eq([@paciente1.imc1.round(2),@paciente5.imc1.round(2)])
+			expect(sobrepeso).to eq([@paciente4.imc1.round(2)])
+			expect(obesidad).to eq([@paciente2.imc1.round(2)])
+			expect(pocopeso).to eq([@paciente3.imc1.round(2)])
 		end
 	end
 	describe "Comparable" do
 		it "Menor" do
-			expect(@paciente1.imc1 < @paciente2.imc1).to eq(false)
+			expect(@paciente1.imc1 < @paciente2.imc1).to eq(true)
 		end
 		it "Mayor" do
 			expect(@paciente1.imc1 > @paciente2.imc1).to eq(false)
 		end
 		it "Igual" do
-			expect(@paciente1.imc1 == @paciente2.imc1).to eq(true)
+			expect(@paciente1.imc1 == @paciente2.imc1).to eq(false)
 		end
 		it "Menor o igual" do
 			expect(@paciente1.imc1 <= @paciente2.imc1).to eq(true)
 		end
 		it "Mayor o igual" do
-			expect(@paciente1.imc1 >= @paciente2.imc1).to eq(true)
+			expect(@paciente1.imc1 >= @paciente2.imc1).to eq(false)
 		end
 	end
 	describe "Enumerable" do
 		it "max" do
 			@lista.insertar_tail(@paciente1)
-			@lista.insertar_tail(@paciente2)
+			@lista.insertar_tail(@paciente3)
 			expect(@lista.max{|a,b| a.imc1 <=> b.imc1}).to eq(@paciente1)
 		end
 		it "select" do
 			@lista.insertar_tail(@paciente3)
 			@lista.insertar_tail(@paciente4)
-			expect(@lista.select { |v| v.imc1==15.624999999999996}).to eq([])
+			expect(@lista.select { |v| v.imc1.round(2)==15.62}).to eq([@paciente3])
 		end
 		it "min" do
 			@lista.insertar_tail(@paciente1)
@@ -121,9 +127,9 @@ RSpec.describe Individuo do
 			expect(@lista.collect{"Michael"}).to eq(["Michael","Michael"])
 		end
 		it "sort" do
-			@lista.insertar_tail(@paciente2)
+			@lista.insertar_tail(@paciente5)
 			@lista.insertar_tail(@paciente4)
-			expect(@lista.sort{|a,b| a.imc1 <=> b.imc1}).to eq([@paciente2,@paciente4])
+			expect(@lista.sort{|a,b| a.imc1 <=> b.imc1}).to eq([@paciente5,@paciente4])
 		end
 	end
 	#Practica 10
@@ -140,9 +146,5 @@ RSpec.describe Individuo do
 		it"peso_teorico_ideal" do
 			expect(@paciente1.peso_teorico_ideal).to eq(80.0)
 		end
-#			expect(@menu2.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
-#			expect(@menu3.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
-#			expect(@menu4.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
-#			expect(@menu5.reduce(0){|sum,n| sum + n.valorenergeticoKJ}.between?((@paciente1.gasto_energetico_total*0.9),(@paciente1.gasto_energetico_total*1.1))).to eq(false)
 	end
 end
