@@ -131,9 +131,9 @@ RSpec.describe List do
 			expect(@paciente8.gasto_energetico_total.round(2)).to eq(2139.58)
 			expect(@paciente9.gasto_energetico_total.round(2)).to eq(2066.4)
 			expect(@paciente10.gasto_energetico_total.round(2)).to eq(1577.13)
-			expect(@lista_pac.orden_for).to eq([@paciente10.gasto_energetico_total.round(2),@paciente2.gasto_energetico_total.round(2),@paciente1.gasto_energetico_total.round(2),@paciente3.gasto_energetico_total.round(2),@paciente6.gasto_energetico_total.round(2),@paciente9.gasto_energetico_total.round(2),@paciente8.gasto_energetico_total.round(2),@paciente7.gasto_energetico_total.round(2),@paciente5.gasto_energetico_total.round(2),@paciente4.gasto_energetico_total.round(2)])
-			expect(@lista_pac.orden_each).to eq([@paciente10.gasto_energetico_total.round(2),@paciente2.gasto_energetico_total.round(2),@paciente1.gasto_energetico_total.round(2),@paciente3.gasto_energetico_total.round(2),@paciente6.gasto_energetico_total.round(2),@paciente9.gasto_energetico_total.round(2),@paciente8.gasto_energetico_total.round(2),@paciente7.gasto_energetico_total.round(2),@paciente5.gasto_energetico_total.round(2),@paciente4.gasto_energetico_total.round(2)])
-			expect(@lista_pac.sort{|a,b| a<=>b}).to eq([@paciente10.gasto_energetico_total.round(2),@paciente2.gasto_energetico_total.round(2),@paciente1.gasto_energetico_total.round(2),@paciente3.gasto_energetico_total.round(2),@paciente6.gasto_energetico_total.round(2),@paciente9.gasto_energetico_total.round(2),@paciente8.gasto_energetico_total.round(2),@paciente7.gasto_energetico_total.round(2),@paciente5.gasto_energetico_total.round(2),@paciente4.gasto_energetico_total.round(2)]) 
+			expect(@lista_pac.orden_for).to eq([1577.13,1681.68,1945.9,1951.13,2051.58,2066.4,2139.58,2183.5,2474.35,6701.75])
+			expect(@lista_pac.orden_each).to eq([1577.13,1681.68,1945.9,1951.13,2051.58,2066.4,2139.58,2183.5,2474.35,6701.75])
+			expect(@lista_pac.sort{|a,b| a<=>b}).to eq([1577.13,1681.68,1945.9,1951.13,2051.58,2066.4,2139.58,2183.5,2474.35,6701.75]) 
 			n = 50000
 			Benchmark.bm do |x|
 				x.report("for lista:") {n.times do @lista_pac.orden_for; end}
